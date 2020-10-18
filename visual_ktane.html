@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://fizzystack.web.fc2.com/ktane/visual.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Visual Bomb Defusal Manual - FizzyStack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="visual_ktane/styles.css" rel="stylesheet" type="text/css">
+  
+  <style type="text/css">
+    #fc2_footer,
+    body>img {
+      width: 0 !important;
+      height: 0 !important;
+      display: none !important;
+    }
+
+    body {
+      background: #ccc;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 100vh;
+      font-family: "Nexa", "Questrial", "Raleway", "ITC Avant Garde Gothic", "TeX Gyre Adventor", "Century Gothic", "Futura", "Helvetica Neue", "Helvetica", sans-serif;
+      font-size: 16pt;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    ol,
+    ul {
+      -webkit-margin-before: 0px;
+      -webkit-margin-after: 0px;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+    }
+
+    #navbar {
+      display: none;
+      position: fixed;
+      text-transform: uppercase;
+      transition-timing-function: ease-in;
+      transition-duration: 200ms;
+      z-index: 2;
+    }
+
+    #navbar:hover {
+      left: 0;
+      transition-timing-function: ease-out;
+      transition-duration: 200ms;
+    }
+
+    #navbar a {
+      display: block;
+      margin-top: 1px;
+      padding: 0.5vh;
+      background: #3f4141;
+      color: #d7d9d9;
+    }
+
+    #navbar a:hover {
+      background: #d7d9d9;
+      color: #3f4141;
+    }
+
+    #wrapper {
+      background: #eee;
+      margin: 0 auto;
+      height: 100vh;
+      box-shadow: 0px 0px 7px #888;
+      overflow: scroll;
+      z-index: 1;
+    }
+
+    #wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    #cover {
+      display: table-cell;
+      width: inherit;
+      height: 100vh;
+      text-align: center;
+      vertical-align: middle;
+      color: black;
+      background: white;
+    }
+
+    #cover a {
+      color: inherit;
+    }
+
+    table {
+      font-size: inherit;
+    }
+
+    #wires table tr td {
+      width: 50%;
+      vertical-align: top;
+    }
+
+    #wof2 table {
+      font-size: 70%;
+      margin: 0 auto;
+    }
+
+    #wof2 table tr {
+      margin: -5% auto;
+    }
+
+    #wof2 table tr:nth-child(2n) {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    #wof2 table th {
+      text-align: right;
+    }
+
+    #memory table tr {
+      height: 10vh;
+    }
+
+    #memory table th,
+    #memory table td {
+      width: 20%;
+    }
+
+    #morse div {
+      width: 25%;
+      float: right;
+      font-size: 75%;
+    }
+
+    #morse table {
+      width: 80%;
+      font-size: 80%;
+    }
+
+    #morse table tr td:first-child {
+      /* font-size: 200%; */
+      /* line-height: 30%; */
+      font-family: monospace;
+    }
+
+    #wireseq table {
+      width: 100%;
+    }
+
+    #wireseq table th {
+      text-align: right;
+    }
+
+    #wireseq table td {
+      font-family: monospace;
+    }
+
+    #wireseq table th,
+    #wireseq table td {
+      width: 16.66666%;
+    }
+
+    #wireseq table tr.head th {
+      color: white;
+      text-align: center;
+    }
+
+    #wireseq table tr.head th:nth-child(1) {
+      background: #ed3952;
+    }
+
+    #wireseq table tr.head th:nth-child(2) {
+      background: #423cac;
+    }
+
+    #wireseq table tr.head th:nth-child(3) {
+      background: #3f4141;
+    }
+
+    #pw table {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    #pw table td {
+      text-align: center;
+      font-size: 150%;
+      font-family: "Anonymous Pro", monospace;
+    }
+
+    #tips table td {
+      border: 1px solid black;
+      width: 25%;
+    }
+
+    .red {
+      color: #ed3952;
+    }
+
+    .orange {
+      color: #fd9131;
+    }
+
+    .yellow {
+      color: #f8eb3b;
+    }
+
+    .lime {
+      color: #acef2f;
+    }
+
+    .green {
+      color: #3fcb30;
+    }
+
+    .cyan {
+      color: #22aaaa;
+    }
+
+    .blue {
+      color: #423cac;
+    }
+
+    .purple {
+      color: #ba25ad;
+    }
+
+    .white-w {
+      color: #d7d9d9;
+      text-shadow: 0px 0px 4px black;
+    }
+
+    .black-w {
+      color: black;
+      text-shadow: 0px 0px 4px black;
+    }
+
+    .red-w {
+      color: #ed3952;
+      text-shadow: 0px 0px 4px black;
+    }
+
+    .blue-w {
+      color: #423cac;
+      text-shadow: 0px 0px 4px black;
+    }
+
+    .yellow-w {
+      color: #f8eb3b;
+      text-shadow: 0px 0px 4px black;
+    }
+
+    .page h3 {
+      text-align: right;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .page:nth-child(8n+2) h3 {
+      background: #ed3952;
+    }
+
+    .page:nth-child(8n+3) h3 {
+      background: #fd9131;
+    }
+
+    .page:nth-child(8n+4) h3 {
+      background: #f8eb3b;
+    }
+
+    .page:nth-child(8n+5) h3 {
+      background: #acef2f;
+    }
+
+    .page:nth-child(8n+6) h3 {
+      background: #3fcb30;
+    }
+
+    .page:nth-child(8n+7) h3 {
+      background: #22aaaa;
+    }
+
+    .page:nth-child(8n+0) h3 {
+      background: #423cac;
+    }
+
+    .page:nth-child(8n+1) h3 {
+      background: #ba25ad;
+    }
+
+    img.fullpage {
+      width: 100%;
+      height: auto;
+    }
+
+    #glyphs img {
+      width: 100%;
+      height: auto;
+    }
+
+    #credit h4,
+    #credit span {
+      margin: 2% 5%;
+    }
+
+    #credit {
+      text-align: right;
+    }
+
+    #credit h4 {
+      text-align: left;
+    }
+
+    @media screen {
+      #navbar {
+        display: block;
+      }
+
+      #cover {
+        color: white;
+        animation: rainbow-bg 15s linear infinite;
+      }
+    }
+
+
+    @media (max-width:540px) {
+      body {
+        font-size: 10pt;
+      }
+
+      #wrapper {
+        width: 100vw;
+        margin: 128px 0 0;
+      }
+
+      #navbar {
+        position: absolute;
+        top: 0;
+        overflow: scroll;
+        width: 128px;
+        height: 100vw;
+        transform-origin: 0 0;
+        transform: rotate(90deg) translate(0, -100vw);
+      }
+
+      #navbar>a {
+        padding: 0.5rem 0;
+      }
+    }
+
+    @media (min-width: 540.01px) and (max-width:800px) {
+      body {
+        font-size: 15pt;
+      }
+
+      #wrapper {
+        width: 500px;
+        position: relative;
+        left: 32px;
+      }
+
+      #navbar {
+        width: 128px;
+        left: -96px;
+      }
+
+      #memory table tr {
+        height: 64px;
+      }
+    }
+
+    @media (min-width:800.01px) {
+      body {
+        font-size: 20pt;
+      }
+
+      #wrapper {
+        width: 720px;
+        margin: 0 auto;
+        position: relative;
+        left: 32px;
+      }
+
+      #navbar {
+        width: 192px;
+        left: -144px;
+      }
+
+      #memory table tr {
+        height: 96px;
+      }
+    }
+
+    /* Chrome hide scrollbar */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Firefox hide scrollbar */
+    * {
+      scrollbar-width: none;
+    }
+
+    @keyframes rainbow-bg {
+      from {
+        background: #ed3952;
+      }
+
+      12.5% {
+        background: #fd9131;
+      }
+
+      25% {
+        background: #f8eb3b;
+      }
+
+      37.5% {
+        background: #acef2f;
+      }
+
+      50% {
+        background: #3fcb30;
+      }
+
+      62.5% {
+        background: #22aaaa;
+      }
+
+      75% {
+        background: #423cac;
+      }
+
+      87.5% {
+        background: #ba25ad;
+      }
+
+      to {
+        background: #ed3952;
+      }
+    }
+  </style>
+
+<body>
+  <div id="navbar">
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#cover">Back to top</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#wires">Wires</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#button">Button</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#glyphs">Keypad</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#simon">Simon Says</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#wof1">WOF 1</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#wof2">WOF 2</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#memory">Memory</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#morse">Morse</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#cwires">CompWires</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#wireseq">WireSeq</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#maze">Maze</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#pw">Passwords</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#needys">Needys</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#knob">NeedyKnob</a> 
+    <a href="./Visual Bomb Defusal Manual - FizzyStack.html#credit">Credits</a>
+  </div>
+  <div id="wrapper">
+    <div id="cover">
+      <h1>The New Visual<br>
+        Bomb Defusal Manual</h1>
+      <h2>by tsvikas</h2>
+      <p>Compatible with Manual Version 1<br>
+        Verification Code: 241</p>
+    </div>
+    <div  class="page">
+      <h3>Need to know:</h3>
+      <li>Serial number contains a vowel? [Simon-Says]</li>
+      <li>Serial number last digit is odd or even? [S.Wires, C.Wires]</li>
+      <li>Bomb have a parallel port? [C.Wires]</li>
+      <li>Number of battaries (0&ndash;1, 2, 3+)? [Button, C.Wires]</li>
+      <li>Bomb have a lit CAR indicator? [Button]</li>
+      <li>Bomb have a lit FRK indicator? [Button]</li>
+    </div>
+    <div id="wires" class="page">
+      <h3>Simple Wires</h3>
+      Cut <b>one</b> wire. Wires are numbered from top to bottom<br><br>
+      </tr>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <h4>3 WIRES</h4>
+              <ul>
+                <li>0 <span class="red-w">red</span>:
+                  <b>2<sup>nd</sup></b></li>
+                <li>2 <span class="blue-w">blue</span>: 
+                  <b>last-blue</b></li>
+                <li>otherwise: 
+                  <b>last</b></li>
+              </ul>
+            </td>
+            <td>
+              <h4>5 WIRES</h4>
+              <ul>
+                <li>last=<span class="black-w">black</span> &amp; serial=odd:
+                  <b>4<sup>th</sup></b></li>
+                <li>1 <span class="red-w">red</span> &amp; 2+ <span class="yellow-w">yellow</span>:
+                  <b>1<sup>st</sup></b></li>
+                <li>0 <span class="black-w">black</span>: 
+                  <b>2<sup>nd</sup></b></li>
+                <li>otherwise: 
+                  <b>1<sup>st</sup></b></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h4>4 WIRES</h4>
+              <ul>
+                <li>2+ <span class="red-w">red </span>&amp; serial=odd: 
+                  <b>last-red</b></li>
+                <li>0 <span class="red-w">red</span> &amp; last=<span class="yellow-w">yellow</span>:
+                  <b>1<sup>st</sup></b></li>
+                <li>1 <span class="blue-w">blue</span>:
+                  <b>1<sup>st</sup></b></li>
+                <li>2+ <span class="yellow-w">yellow</span>:
+                  <b>last</b></li>
+                <li>otherwise:
+                  <b>2<sup>nd</sup></b></li>
+              </ul>
+            </td>
+            <td>
+              <h4>6 WIRES</h4>
+              <ul>
+                <li>0 <span class="yellow-w">yellow</span> &amp; serial=odd: 
+                  <b>3<sup>rd</sup></b></li>
+                <li>1 <span class="yellow-w">yellow</span> &amp; 2+ <span class="white-w">white</span>: 
+                  <b>4<sup>th</sup></b></li>
+                <li>0 <span class="red-w">red</span>: 
+                  <b>last</b></li>
+                <li>otherwise: 
+                  <b>4<sup>th</sup></b></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="button" class="page">
+      <h3>The Button</h3>
+      <img src="./visual_ktane/button.png" class="fullpage" alt="">
+    </div>
+    <div id="glyphs" class="page">
+      <h3>Keypads</h3>
+      1) Find column with all 4 symbols on keypad<br>
+      2) Push from top to bottom of column<br><br>
+      Highlighted symbols are unique <img src="./visual_ktane/keypad.png" alt="">
+    </div>
+    <div id="simon" class="page">
+      <h3>Simon Says</h3>
+      <img src="./visual_ktane/simon.png" class="fullpage" alt="">
+    </div>
+    <div id="wof1" class="page">
+      <h3>Who's On First? Page 1</h3> <img src="./visual_ktane/wof.png" class="fullpage" alt="">
+      <p>Suggestion: UR = "UR 2 letters", YOU ARE = "UR 2 words", YOUR = "YOUR 1 word with R", YOU'RE = "YOU'RE 1 word with contraction"</p>
+    </div>
+    <div id="wof2" class="page">
+      <h3>Who's On First? Page 2</h3>
+      <table cellspacing="0">
+        <tbody>
+          <tr>
+            <th>BLANK</th>
+            <td>WAIT, RIGHT, OKAY, MIDDLE, BLANK</td>
+          </tr>
+          <tr>
+            <th>DONE</th>
+            <td>SURE, UH HUH, NEXT, WHAT?, YOUR, UR, YOU'RE, HOLD, LIKE</td>
+          </tr>
+          <tr>
+            <th>FIRST</th>
+            <td>LEFT, OKAY, YES, MIDDLE, NO, RIGHT, NOTHING, UHHH, WAIT</td>
+          </tr>
+          <tr>
+            <th>HOLD</th>
+            <td>YOU ARE, U, DONE, UH UH, YOU, UR, SURE, WHAT?, YOU'RE</td>
+          </tr>
+          <tr>
+            <th>LEFT</th>
+            <td>RIGHT, LEFT</td>
+          </tr>
+          <tr>
+            <th>LIKE</th>
+            <td>YOU'RE, NEXT, U, UR, HOLD, DONE, UH UH, WHAT?, UH HUH</td>
+          </tr>
+          <tr>
+            <th>MIDDLE</th>
+            <td>BLANK, READY, OKAY, WHAT, NOTHING, PRESS, NO, WAIT, LEFT</td>
+          </tr>
+          <tr>
+            <th>NEXT</th>
+            <td>WHAT?, UH HUH, UH UH, YOUR, HOLD, SURE, NEXT</td>
+          </tr>
+          <tr>
+            <th>NO</th>
+            <td>BLANK, UHHH, WAIT, FIRST, WHAT, READY, RIGHT, YES, NOTHING</td>
+          </tr>
+          <tr>
+            <th>NOTHING</th>
+            <td>UHHH, RIGHT, OKAY, MIDDLE, YES, BLANK, NO, PRESS, LEFT</td>
+          </tr>
+          <tr>
+            <th>OKAY</th>
+            <td>MIDDLE, NO, FIRST, YES, UHHH, NOTHING, WAIT, OKAY</td>
+          </tr>
+          <tr>
+            <th>PRESS</th>
+            <td>RIGHT, MIDDLE, YES, READY, PRESS</td>
+          </tr>
+          <tr>
+            <th>READY</th>
+            <td>YES, OKAY, WHAT, MIDDLE, LEFT, PRESS, RIGHT, BLANK, READY</td>
+          </tr>
+          <tr>
+            <th>RIGHT</th>
+            <td>YES, NOTHING, READY, PRESS, NO, WAIT, WHAT, RIGHT</td>
+          </tr>
+          <tr>
+            <th>SURE</th>
+            <td>YOU ARE, DONE, LIKE, YOU'RE, YOU, HOLD, UH HUH, HR, SURE</td>
+          </tr>
+          <tr>
+            <th>U</th>
+            <td>UH HUH, SURE, NEXT, WHAT?, YOU'RE, UR, UH HUH, DONE, U</td>
+          </tr>
+          <tr>
+            <th>UHHH</th>
+            <td>READY, NOTHING, LEFT, WHAT, OKAY, YES, RIGHT, NO, PRESS</td>
+          </tr>
+          <tr>
+            <th>UH HUH</th>
+            <td>UH HUH</td>
+          </tr>
+          <tr>
+            <th>UH UH</th>
+            <td>UR, U, YOU ARE, YOU'RE, NEXT, UH UH</td>
+          </tr>
+          <tr>
+            <th>UR</th>
+            <td>DONE, U, UR</td>
+          </tr>
+          <tr>
+            <th>WAIT</th>
+            <td>UHHH, NO, BLANK, OKAY, YES, LEFT, FIRST, PRESS, WHAT</td>
+          </tr>
+          <tr>
+            <th>WHAT</th>
+            <td>UHHH, WHAT</td>
+          </tr>
+          <tr>
+            <th>WHAT?</th>
+            <td>YOU, HOLD, YOU'RE, YOUR, U, DONE, UH UH, LIKE, YOU ARE</td>
+          </tr>
+          <tr>
+            <th>YES</th>
+            <td>OKAY, RIGHT, UHHH, MIDDLE, FIRST, WHAT, PRESS, READY, NOTHING</td>
+          </tr>
+          <tr>
+            <th>YOU</th>
+            <td>SURE, YOU ARE, YOUR, YOU'RE, NEXT, UH HUH, UR, HOLD, WHAT?</td>
+          </tr>
+          <tr>
+            <th>YOU'RE</th>
+            <td>YOU, YOU'RE</td>
+          </tr>
+          <tr>
+            <th>YOU ARE</th>
+            <td>YOUR, NEXT, LIKE, UH HUH, WHAT?, DONE, UH UH, HOLD, YOU</td>
+          </tr>
+          <tr>
+            <th>YOUR</th>
+            <td>UH UH, YOU ARE, UH HUH, YOUR</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="memory" class="page">
+      <h3>Memory</h3>
+      <table>
+        <thead>
+          <tr>
+            <td colspan="5">Make sure to write down the label of each phase, and position of phase 1 and 2.</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>DISPLAY</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+          </tr>
+          <tr>
+            <th>STAGE 1</th>
+            <td>POS=2</td>
+            <td>POS=2</td>
+            <td>POS=3</td>
+            <td>POS=4</td>
+          </tr>
+          <tr>
+            <th>STAGE 2</th>
+            <td>LABEL=4</td>
+            <td><i>Stage 1 POS</i></td>
+            <td>POS=1</td>
+            <td><i>Stage 1 POS</i></td>
+          </tr>
+          <tr>
+            <th>STAGE 3</th>
+            <td><i>Stage 2 LABEL</i></td>
+            <td><i>Stage 1 LABEL</i></td>
+            <td>POS=3</td>
+            <td>LABEL=4</td>
+          </tr>
+          <tr>
+            <th>STAGE 4</th>
+            <td><i>Stage 1 POS</i></td>
+            <td>POS=1</td>
+            <td><i>Stage 2 POS</i></td>
+            <td><i>Stage 2 POS</i></td>
+          </tr>
+          <tr>
+            <th>STAGE 5</th>
+            <td><i>Stage 1 LABEL</i></td>
+            <td><i>Stage 2 LABEL</i></td>
+            <td><i>Stage 4 LABEL</i></td>
+            <td><i>Stage 3 LABEL</i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="morse" class="page">
+      <h3>Morse Code</h3>
+      <img src="./visual_ktane/morse.png" class="fullpage" alt="">
+      The tran­scrip­tion of each word is pro­vided, and sor­ted in dit-dah order, spaces ig­nored.
+      <table>
+        <tbody>
+          <tr>
+            <td><mark>··· ···</mark>· · ·−·· ·−··</td>
+            <td>shell</td>
+            <td>3.505 MHz</td>
+            <!-- <td rowspan="8">E</td> -->
+            <!-- <td rowspan="4">I</td> -->
+            <!-- <td rowspan="2">S</td> -->
+            <!-- <td rowspan="1">H</td> -->
+          </tr>
+          <tr>
+            <td><mark>···· ·−</mark> ·−·· ·−·· ···</td>
+            <td>halls</td>
+            <td>3.515 MHz</td>
+            <!-- <td rowspan="1">V</td> -->
+          </tr>
+          <tr>
+            <td><mark>··· ·−</mark>·· ·· −·−· −·−</td>
+            <td>slick</td>
+            <td>3.522 MHz</td>
+            <!-- <td rowspan="2">U</td> -->
+            <!-- <td rowspan="1">F</td> -->
+          </tr>
+          <tr>
+            <td><mark>··· − ·· −·</mark> −−·</td>
+            <td>sting</td>
+            <td>3.592 MHz</td>
+          </tr>
+          <tr>
+            <td><mark>··· − · ·− −</mark>·−</td>
+            <td>steak</td>
+            <td>3.582 MHz</td>
+            <!-- <td rowspan="4">A</td> -->
+            <!-- <td rowspan="2">R</td> -->
+            <!-- <td rowspan="1">L</td> -->
+          </tr>
+          <tr>
+            <td><mark>···− · −·−·</mark> − −−− ·−·</td>
+            <td>vector</td>
+            <td>3.595 MHz</td>
+          </tr>
+          <tr>
+            <td><mark>··· − ·−· −−</mark>− −··· ·</td>
+            <td>strobe</td>
+            <td>3.545 MHz</td>
+            <!-- <td rowspan="2">W</td> -->
+            <!-- <td rowspan="1">P</td> -->
+          </tr>
+          <tr>
+            <td><mark>··−</mark>· ·−·· ·· −·−· −·−</td>
+            <td>flick</td>
+            <td>3.555 MHz</td>
+            <!-- <td rowspan="1">J</td> -->
+          </tr>
+          <tr>
+            <td><mark>·−</mark>·· · ·− −·− ···</td>
+            <td>leaks</td>
+            <td>3.542 MHz</td>
+            <!-- <td rowspan="8">T</td> -->
+            <!-- <td rowspan="4">N</td> -->
+            <!-- <td rowspan="2">D</td> -->
+            <!-- <td rowspan="1">B</td> -->
+          </tr>
+          <tr>
+            <td><mark>−··· ·· ·</mark>·· − ·−· −−−</td>
+            <td>bistro</td>
+            <td>3.552 MHz</td>
+            <!-- <td rowspan="1">X</td> -->
+          </tr>
+          <tr>
+            <td><mark>−··· · ·−</mark> − ···</td>
+            <td>beats</td>
+            <td>3.600 MHz</td>
+            <!-- <td rowspan="2">K</td> -->
+            <!-- <td rowspan="1">C</td> -->
+          </tr>
+          <tr>
+            <td><mark>−··· ·−· ·· −·</mark>−· −·−</td>
+            <td>brick</td>
+            <td>3.575 MHz</td>
+            <!-- <td rowspan="1">Y</td> -->
+          </tr>
+          <tr>
+            <td><mark>−··· ·−· · ·− −</mark>·−</td>
+            <td>break</td>
+            <td>3.572 MHz</td>
+            <!-- <td rowspan="4">M</td> -->
+            <!-- <td rowspan="2">G</td> -->
+            <!-- <td rowspan="1">Z</td> -->
+          </tr>
+          <tr>
+            <td><mark>−··· −−− −·</mark>·− · ···</td>
+            <td>boxes</td>
+            <td>3.535 MHz</td>
+            <!-- <td rowspan="1">Q</td> -->
+          </tr>
+          <tr>
+            <td><mark>−··· −−− −−</mark> −··· ···</td>
+            <td>bombs</td>
+            <td>3.565 MHz</td>
+            <!-- <td rowspan="2">O</td> -->
+          </tr>
+          <tr>
+            <td><mark>− ·−</mark>· ·· −·−· −·−</td>
+            <td>trick</td>
+            <td>3.532 MHz</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="cwires" class="page">
+      <h3>Complicated Wires</h3>
+      1) <b>Always</b>: Cut all wires with (color=<span class="white-w">white</span> &amp; no LED)<br>
+      2) <b>If serial is even</b>: Cut all wires with (no LED &amp; no star)<br>
+      3) <b>If serial is even and 2+ batteries</b>: Cut all wires with (color=<span class="red-w">red</span> (full or striped))<br>
+      4) <b>Always</b>: cut the last wire group, if the module is still unsolved<br>
+      5) <b>Never</b> cut a <span class="red-w">red</span>-<span class="blue-w">blue</span>-☆-💡 wire.<br>
+      6) <b>Never</b> cut an only 💡 wire.<br>
+      <img src="./visual_ktane/comp.png" class="fullpage" alt="">
+    </div>
+    <div id="wireseq" class="page">
+      <h3>Wire Sequences</h3>
+      Whether or not to cut a wire depends on the <i>cumulative</i> number of occurrences of <b>each color</b> in <i>that module</i>
+      <table>
+        <tbody>
+          <tr class="head">
+            <th colspan="2">RED</th>
+            <th colspan="2">BLUE</th>
+            <th colspan="2">BLACK</th>
+          </tr>
+          <tr>
+            <th class="red">1</th>
+            <td class="red">C</td>
+            <th class="blue">1</th>
+            <td class="blue">B</td>
+            <th>1</th>
+            <td>ABC</td>
+          </tr>
+          <tr>
+            <th class="red">2</th>
+            <td class="red">B</td>
+            <th class="blue">2</th>
+            <td class="blue">AC</td>
+            <th>2</th>
+            <td>AC</td>
+          </tr>
+          <tr>
+            <th class="red">3</th>
+            <td class="red">A</td>
+            <th class="blue">3</th>
+            <td class="blue">B</td>
+            <th>3</th>
+            <td>B</td>
+          </tr>
+          <tr>
+            <th class="red">4</th>
+            <td class="red">AC</td>
+            <th class="blue">4</th>
+            <td class="blue">A</td>
+            <th>4</th>
+            <td>AC</td>
+          </tr>
+          <tr>
+            <th class="red">5</th>
+            <td class="red">B</td>
+            <th class="blue">5</th>
+            <td class="blue">B</td>
+            <th>5</th>
+            <td>B</td>
+          </tr>
+          <tr>
+            <th class="red">6</th>
+            <td class="red">AC</td>
+            <th class="blue">6</th>
+            <td class="blue">BC</td>
+            <th>6</th>
+            <td>BC</td>
+          </tr>
+          <tr>
+            <th class="red">7</th>
+            <td class="red">ABC</td>
+            <th class="blue">7</th>
+            <td class="blue">C</td>
+            <th>7</th>
+            <td>AB</td>
+          </tr>
+          <tr>
+            <th class="red">8</th>
+            <td class="red">AB</td>
+            <th class="blue">8</th>
+            <td class="blue">AC</td>
+            <th>8</th>
+            <td>C</td>
+          </tr>
+          <tr>
+            <th class="red">9</th>
+            <td class="red">B</td>
+            <th class="blue">9</th>
+            <td class="blue">A</td>
+            <th>9</th>
+            <td>C</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="maze" class="page">
+      <h3>Maze</h3>
+      <img src="./visual_ktane/maze.png" class="fullpage" alt="">
+    </div>
+    <div id="pw" class="page">
+      <h3>Passwords</h3>
+      <p>TIP: Use the 1<sup>st</sup> and 4<sup>th</sup> letter. If the first letter contains a <b>T</b>, ask if the 2<sup>nd</sup> letter contains an <b>H</b>.
+      </p>
+      <p>Most common 4<sup>th</sup> letters: L(6), N(6), E(5), R(4), S(3).
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <b>A</b>BO<b>U</b>T<br>
+              <b>A</b>FT<b>E</b>R<br>
+              <b>A</b>GA<b>I</b>N<br>
+              <b>B</b>EL<b>O</b>W<br>
+              <b>C</b>OU<b>L</b>D<br>
+              <b>E</b>VE<b>R</b>Y<br>
+              <b>F</b>IR<b>S</b>T<br>
+              <b>F</b>OU<b>N</b>D<br>
+              <b>G</b>RE<b>A</b>T</td>
+            <td>
+              <b>H</b>OU<b>S</b>E<br>
+              <b>L</b>AR<b>G</b>E<br>
+              <b>L</b>EA<b>R</b>N<br>
+              <b>N</b>EV<b>E</b>R<br>
+              <b>O</b>TH<b>E</b>R<br>
+              <b>P</b>LA<b>C</b>E<br>
+              <b>P</b>LA<b>N</b>T<br>
+              <b>P</b>OI<b>N</b>T<br>
+              <b>R</b>IG<b>H</b>T</td>
+            <td>
+              <b>S</b>MA<b>L</b>L<br>
+              <b>S</b>OU<b>N</b>D<br>
+              <b>S</b>PE<b>L</b>L<br>
+              <b>S</b>TI<b>L</b>L<br>
+              <b>S</b>TU<b>D</b>Y</td>
+            <td>
+              <b>T</b>HE<b>I</b>R<br>
+              <b>T</b>HE<b>R</b>E<br>
+              <b>T</b>HE<b>S</b>E<br>
+              <b>T</b>HI<b>N</b>G<br>
+              <b>T</b>HI<b>N</b>K<br>
+              <b>T</b>HR<b>E</b>E</td>
+            <td>
+              <b>W</b>AT<b>E</b>R<br>
+              <b>W</b>HE<b>R</b>E<br>
+              <b>W</b>HI<b>C</b>H<br>
+              <b>W</b>OR<b>L</b>D<br>
+              <b>W</b>OU<b>L</b>D<br>
+              <b>W</b>RI<b>T</b>E</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="tips" class="page">
+      <table>
+        <tbody>
+          <tr>
+            <td><b>A</b>lfa</td>
+            <td><b>B</b>ravo</td>
+            <td><b>C</b>harlie</td>
+            <td><b>D</b>elta</td>
+            <td><b>E</b>cho</td>
+            <td><b>F</b>oxtrot</td>
+          </tr>
+          <tr>
+            <td><b>G</b>olf</td>
+            <td><b>H</b>otel</td>
+            <td><b>I</b>ndia</td>
+            <td><b>J</b>uliett</td>
+            <td><b>K</b>ilo</td>
+            <td><b>L</b>ima</td>
+          </tr>
+          <tr>
+            <td><b>M</b>ike</td>
+            <td><b>N</b>ovember</td>
+            <td><b>O</b>scar</td>
+            <td><b>P</b>apa</td>
+            <td><b>Q</b>uebec</td>
+            <td><b>R</b>omeo</td>
+          </tr>
+          <tr>
+            <td><b>S</b>ierra</td>
+            <td><b>T</b>ango</td>
+            <td><b>U</b>niform</td>
+            <td><b>V</b>ictor</td>
+            <td><b>W</b>hiskey</td>
+            <td><b>X</b>-ray</td>
+          </tr>
+          <tr>
+            <td><b>Y</b>ankee</td>
+            <td><b>Z</b>ulu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="needys" class="page">
+      <h3>Needy Dialog</h3>
+      <p>The question can be "Vent gas?" (<b>Y</b>) or "Detonate?" (<b>N</b>)</p>
+      <p>To be sure, press "No" first. When the question is "Vent gas?" the module will remind you that "Venting
+        prevents
+        explosions". However, when you answer "Yes" to "Detonate?" The bomb will explode without warning.</p>
+    </div>
+    <div class="page">
+      <h3>Needy Capacitator (a.k.a. "Lever")</h3>
+      <p>Pull the lever to drain the electricity, which will otherwise accumulate in 45 seconds.</p>
+      <p>When you neglect it too long, you will hear the module make a sound in the background. When you hear it,
+        <b>abandon what you're doing and hold down the lever immediately.</b></p>
+    </div>
+    <div id="knob" class="page">
+      <h3>Needy Knob</h3>
+      <img src="./visual_ktane/knob.png" class="fullpage" alt="">
+    </div>
+    <div id="credit" class="page">
+      <h3>Credit</h3>
+      <h4>Fixed and revised by tsvikas</h4>
+      <h4>Based on <a href="http://fizzystack.web.fc2.com/ktane/visual.html">Simplified Manual</a> by <a href="https://www.reddit.com/user/thefizzynator/">TheFIZZYnator</a></h4>
+      <h4>Using some ideas from <a href="https://github.com/Timwi/KtaneContent/tree/master/PDF">ToIMW</a></h4>
+      <h4>Original <a href="https://www.bombmanual.com/">Manual</a> and <a href="http://www.keeptalkinggame.com/">Game</a> by <a href="https://steelcrategames.com/">Steel Crate Games</a></h4>
+    </div>
+    <div style="height:20vh;"> </div>
+  </div>
+
+
+
+<script type="text/javascript"><!--
+var fc2footerparam = 'charset=' + (document.charset ? document.charset : document.characterSet) + '&url=' + document.location + '&service=0&r=' + Math.floor(Math.random()*99999999999);
+var fc2footertag = '<' + 'script src="//vip.chps-api.fc2.com/apis/footer/?' + fc2footerparam + '" charset="UTF-8"><' + '/script>';
+document.write(fc2footertag);
+//--></script><script src="./visual_ktane/saved_resource" charset="UTF-8"></script><script type="text/javascript">var _userPageInfo = {"fc2_footer_pos":"0","account_name":"fizzystack","external_domain":null};
+</script><script src="./visual_ktane/fc2_web_user_page.js.download" charset="UTF-8"></script><div id="fc2_footer" style="text-align: center; width: 100%; line-height: 14px;"><span style="font-size:12px;"><br><a target="_blank" href="https://web.fc2.com/">Powered by FC2ホームページ</a></span></div>
+
+<!-- FC2, inc.-->
+<img src="./visual_ktane/counter_img.php" style="visibility: hidden; display: none !important;" alt="inserted by FC2 system" width="0" height="0" hidden="">
+<!-- FC2, inc.-->
+
+
+<div id="pocket-extension-root"><div class="pocket-egasyq"></div></div><div id="pocket-extension-styles"><style data-emotion="pocket"></style></div></body></html>
