@@ -1,6 +1,7 @@
 # [tsvikas.github.io](http://tsvikas.github.io)
 
-currently containing:
-* A visual manual for "Keep Talking and Nobody explodes"
+My GitHub Pages homepage. Projects live in their own repos:
+* [ktane-manual](https://github.com/tsvikas/ktane-manual): A visual manual for "Keep Talking and Nobody explodes"
+* [claude-commands](https://github.com/tsvikas/claude-commands): Cheatsheet for Claude Code's built-in commands
 
-See subdirectories for individual README files
+`ktane/` is a redirect to the old location of ktane-manual.
